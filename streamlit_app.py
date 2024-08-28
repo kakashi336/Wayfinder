@@ -11,7 +11,7 @@ def on_input_change():
         if st.session_state.questions:
             st.session_state.questions.pop(0)
 
-# Function to clear the chat 
+# Function to clear screen
 def on_btn_click():
     # Reset questions and responses
     st.session_state.questions = ['What is your Budget', 
