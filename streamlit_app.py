@@ -1,5 +1,6 @@
 import streamlit as st
-from logic import create_prompt_user_response_matrix, get_openai_response, read_csv, get_top_locations
+from logic import (create_prompt_user_response_matrix, get_openai_response, read_csv, get_top_locations,
+                   filter_csv_region)
 
 # Function to handle user input change
 def on_input_change():
@@ -190,10 +191,10 @@ def main():
             }
         }
     }
-
+    df_qol = read_csv()
+    df_qol = filter_csv_region(df_qol, st.session_state.responses[1], st.session_state.questions[2])
     prompt = create_prompt_user_response_matrix(user_response_dict)
     parsed_response = get_openai_response(prompt)
-    df_qol = read_csv()
     df_top_locations = get_top_locations(df_qol, parsed_response)
     print(df_top_locations)
 

@@ -227,3 +227,28 @@ def get_top_locations(df_qol: pd.DataFrame, user_qol: QualityOfLifeIndexes) -> p
     df_qol['user_score_secondary'] = df_qol.apply(lambda x: get_secondary_score(x, user_qol_sorted), axis=1)
     df_qol = df_qol.sort_values(by=['user_score_primary', 'user_score_secondary', 'QoL'])
     return df_qol.iloc[0:5]
+
+
+def filter_csv_region(df_qol, response_region, response_urban_rural):
+    provinces = df_qol['PROVINCE'].unique().tolist()
+    counties = df_qol['COUNTY'].unique().tolist()
+    province_flag = 0
+    for province in provinces:
+        if province.lower() in response_region.lower():
+            df_qol = df_qol[df_qol['PROVINCE'] == province]
+            province_flag = 1
+            break
+    if province_flag == 0:
+        for county in counties:
+            if county.lower() in response_region.lower():
+                df_qol = df_qol[df_qol['COUNTY'] == county]
+                break
+
+    if 'semi urban' or 'semi-urban' or 'midsize' or 'town' in response_urban_rural:
+        df_qol = df_qol[(df_qol['Population (2022) - F1060C01'] > 1500) & (df_qol['Population (2022) - F1060C01'] < 10000)]
+    elif 'urban' or 'metropolitan' or 'major city' in response_urban_rural:
+        df_qol = df_qol[df_qol['Population (2022) - F1060C01'] > 10000]
+    elif 'small town' or 'small-town' or 'village' or 'micropolitan' in response_urban_rural:
+        df_qol = df_qol[df_qol['Population (2022) - F1060C01'] < 1500]
+
+    return df_qol
