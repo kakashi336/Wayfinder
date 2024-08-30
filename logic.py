@@ -227,4 +227,3 @@ def get_top_locations(df_qol: pd.DataFrame, user_qol: QualityOfLifeIndexes) -> p
     df_qol['user_score_secondary'] = df_qol.apply(lambda x: get_secondary_score(x, user_qol_sorted), axis=1)
     df_qol = df_qol.sort_values(by=['user_score_primary', 'user_score_secondary', 'QoL'])
     return df_qol.iloc[0:5]
-
