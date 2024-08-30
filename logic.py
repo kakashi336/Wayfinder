@@ -232,17 +232,45 @@ def get_top_locations(df_qol: pd.DataFrame, user_qol: QualityOfLifeIndexes) -> p
 def filter_csv_region(df_qol, response_region, response_urban_rural):
     provinces = df_qol['PROVINCE'].unique().tolist()
     counties = df_qol['COUNTY'].unique().tolist()
+    eds = df_qol['Electoral Divisions'].unique().tolist()
     province_flag = 0
+    county_flag = 0
+    ed_flag = 0
+    filtered_provinces = []
+    filtered_counties = []
+    filtered_eds = []
+
     for province in provinces:
         if province.lower() in response_region.lower():
-            df_qol = df_qol[df_qol['PROVINCE'] == province]
+            if province not in filtered_provinces:
+                filtered_provinces.append(province)
             province_flag = 1
-            break
-    if province_flag == 0:
-        for county in counties:
-            if county.lower() in response_region.lower():
-                df_qol = df_qol[df_qol['COUNTY'] == county]
-                break
+    if province_flag == 1:
+        df_qol = df_qol[df_qol['PROVINCE'].isin(filtered_provinces)]
+
+    for county in counties:
+        if county.lower() in response_region.lower():
+            if county not in filtered_counties:
+                filtered_counties.append(county)
+            county_flag = 1
+    if county_flag == 1:
+        df_qol = df_qol[df_qol['COUNTY'].isin(filtered_counties)]
+
+    # for ed in eds:
+    #     ed_split = ed.split(',')
+    #     ed_split_stripped = [ed.strip() for ed in ed_split]
+    #     for ed_split_stripped_i in ed_split_stripped:
+    #         if ed_split_stripped_i.lower() in response_region.lower():
+    #             if ed_split_stripped_i not in filtered_eds:
+    #                 filtered_eds.append(ed_split_stripped_i)
+    #             ed_flag = 1
+    # if ed_flag == 1:
+    #     pattern = r'\b(' + '|'.join(filtered_eds) + r')\b'
+    #
+    #     def contains_keyword(text):
+    #         return bool(re.search(pattern, text, re.IGNORECASE))
+    #
+    #     df_qol = df_qol[df_qol['Electoral Divisions'].apply(contains_keyword)]
 
     if 'semi urban' or 'semi-urban' or 'midsize' or 'town' in response_urban_rural:
         df_qol = df_qol[(df_qol['Population (2022) - F1060C01'] > 1500) & (df_qol['Population (2022) - F1060C01'] < 10000)]
