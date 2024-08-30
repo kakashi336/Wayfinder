@@ -56,7 +56,7 @@ def create_prompt_user_response_matrix(user_response: dict) -> str:
     """
     prompt = f"""
         We are designing a tool which gathers user responses on questions around quality of life aspects for housing and recommends them areas to live in.
-        We have decided to use 6 indexes of measuring quality of life with each one of them having multiple factors. Alongside these indexes to understand user demographics we also get user information like number of adults, children and pets in the family, whether the user has a preferred city or county where the user would like to move, and whether the user wants to live in an urban, semi-urban or rural environment. We also get additional context from user which captures important information like must haves for user and whether there is a deal breaker or non negotiable item for user
+        We have decided to use 6 indexes of measuring quality of life with each one of them having multiple factors. Alongside these indexes to understand user demographics we also get user information like number of adults, children and pets in the family, whether the user has a preferred city or county where the user would like to move, and whether the user wants to live in an urban, semi-urban or rural environment. We also get additional context from user like must haves for user and whether there is a deal breaker or non negotiable item for user, please use the information in additional context to weigh the idexes and factors accoringly
 
         Here is the information for the indexes
         First index is sense of control which has 4 factors in it cost of living, essential services, safety and influence and contribution
