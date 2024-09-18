@@ -135,4 +135,4 @@ dmypy.json
 .vscode
 
 # add secret keys or API keys here
-configs.py
+.configs.py
