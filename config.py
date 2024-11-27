@@ -1,0 +1,22 @@
+key = 'test'
+questions = [" How many adults, children, and pets will be living with you?",
+            "Are you focused on any specific city or county, or are you open to exploring different areas?",
+            "What type of setting do you prefer—urban, semi-urban, small town, village, or something else?",
+            "What is your target monthly budget for living expenses, including housing, utilities, and transportation?",
+            "How important is it for you to have key services like hospitals, schools, and grocery stores nearby?",
+            "How important is neighborhood safety to you, including low crime rates and a peaceful atmosphere?",
+            "How involved are you in community events or local meetings? Would you like to continue that involvement?",
+            "How often do you plan to visit parks or engage in outdoor activities in your new neighborhood?",
+            "How often do you participate in cultural events like festivals, theater, or museum visits? Would you like that to continue?",
+            "How important is it for you to live in a community with thriving local businesses, job opportunities, and a strong sense of belonging?",
+            "How much time do you plan to spend in parks, green spaces, or near natural water bodies?",
+            "Will you be commuting by car? If so, how much driving time are you comfortable with each day?",
+            "How often do you plan to use public transport, and how important is it for you to have easy access to it?",
+            "How important is it for you to live in a pedestrian- and bike-friendly area? How often do you plan to walk or bike for daily activities?",
+            "How important is good air and water quality, along with minimal noise and light pollution, in your new area?",
+            "Is access to healthy food options and nearby grocery stores important to you?",
+            "How important are high housing standards and well-maintained neighborhoods to you?",
+            "Do you or anyone in your family have specific health conditions or allergies that need to be considered?",
+            "What are the non-negotiables in your new home or neighborhood that would be deal-breakers if missing?",
+            "Would you like to save your responses for future reference, or would you prefer to remain anonymous for this session?"
+        ]

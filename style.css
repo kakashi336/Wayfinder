@@ -1,3 +1,8 @@
+/* Set black background for the entire app */
+body {
+    background-color: black;
+    color: white;  /* Change all text color to white */
+}
 /* Center the logo and adjust size */
 .logo-container {
     text-align: center;
@@ -5,14 +10,40 @@
     margin-bottom: 20px;
 }
 
-/* Style the title to avoid breaking into multiple lines and reduce boldness */
+.stButton > button {
+    background-color: #2c418e; /* Background color */
+    color: white; /* Text color */
+    padding: 15px 30px; /* Padding around the text */
+    border-radius: 12px; /* Rounded corners */
+    border: none; /* Remove border */
+    font-size: 20px; /* Increase font size */
+    font-weight: bold; /* Make text bold */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.stButton > button:hover {
+    background-color: #1a275f; /* Darker background on hover */
+}
+/* Style the 
+
+
+e to avoid breaking into multiple lines and reduce boldness */
 .title {
     font-size: 1.8rem;  /* Reduce font size to fit in one line */
     font-weight: 500;  /* Lessen the boldness */
     text-align: center;  /* Center the title */
     margin-bottom: 20px;  /* Add spacing below the title */
+    color: rgb(18, 9, 9); /* Ensure title text is white */
 }
 
+.title1 {
+    font-size: 1.8rem;  /* Reduce font size to fit in one line */
+    font-weight: 500;  /* Lessen the boldness */
+    text-align: center;  /* Center the title */
+    margin-bottom: 20px;  /* Add spacing below the title */
+    color: rgb(254, 254, 254); /* Ensure title text is white */
+}
 /* Center the Begin button */
 .stButton > button {
     display: block;
@@ -39,6 +70,7 @@
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     margin: 10px 0;
+    color: white; /* Ensure question card text is white */
 }
 
 /* Keyframes for fade-in animation */
